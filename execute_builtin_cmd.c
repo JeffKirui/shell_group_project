@@ -8,7 +8,8 @@ void execute_builtin_cmd(char *cmd)
 {
 	pid_t pid = fork();
 	int result;
-
+	int status;
+	
 	if (pid == -1)
 	{
 		perror("Error: Failure to fork");
@@ -16,7 +17,12 @@ void execute_builtin_cmd(char *cmd)
 	}
 	else if (pid == 0)
 	{
-		char *argv[] = {"/bin/sh", "-c", cmd, NULL};
+		char *argv[4];
+
+		argv[0] = "/bin/sh";
+		argv[1] = "-c";
+		argv[2] = cmd;
+		argv[3] = NULL;
 
 		result = execve(argv[0], argv, NULL);
 		if (result == -1)
@@ -26,10 +32,5 @@ void execute_builtin_cmd(char *cmd)
 		exit(EXIT_FAILURE);
 	}
 	else
-	{
-		int status;
-
 		waitpid(pid, &status, 0);
-
-	}
 }

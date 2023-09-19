@@ -22,10 +22,10 @@ void execute_external_cmd(char *cmd)
 		char *var_name = strtok(cmd + 6, "=");
 		char *var_value = strtok(NULL, "=");
 
-		if (_setenv(var_name, var_value, 1) == -1)
+		if (setenv(var_name, var_value, 1) == -1)
 			perror("Error setting environment variable");
 		else
-			_setenv(var_name, var_value, 1);
+			setenv(var_name, var_value, 1);
 	}
 	if (_strncmp(cmd, "unsetenv", 8) == 0)
 	{

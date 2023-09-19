@@ -19,10 +19,10 @@ int main(void)
 		buf = malloc(sizeof(char) * 1024);
 		g_input = _getline(&buf, &n, stdin);
 
-		if (g_input == EOF)
+		if (g_input == (size_t)NULL)
 			break;
 
-		if (g_input == -1)
+		if (g_input == (size_t)-1)
 		{
 			perror("Error reading input.");
 			free(buf);
@@ -34,9 +34,9 @@ int main(void)
 
 		if (_strstr(buf, "env") != NULL)
 			execute_external_cmd(buf);
-		else if (_strstr(buf, "exit") != NULL)
+		else if	(_strstr(buf, "exit") != NULL)
 			execute_external_cmd2(buf);
-		else if (_strstr(buf, "setenv") != NULL)
+		else if	(_strstr(buf, "setenv") != NULL)
 			execute_external_cmd(buf);
 		else if (_strstr(buf, "unsetenv") != NULL)
 			execute_external_cmd(buf);

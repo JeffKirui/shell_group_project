@@ -7,6 +7,9 @@
   */
 int _unsetenv(const char *name)
 {
+	char **env = environ;
+	int found = 0;
+
 	if (name == NULL)
 	{
 		const char *error_msg = "unsetenv: Missing variable name\n";
@@ -14,9 +17,6 @@ int _unsetenv(const char *name)
 		write(STDERR_FILENO, error_msg, my_strlen(error_msg));
 		return (-1);
 	}
-
-	char **env = environ;
-	int found = 0;
 
 	while (*env != NULL)
 	{

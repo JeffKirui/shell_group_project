@@ -8,6 +8,7 @@
   */
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 {
+	char *temp;
 	int c;
 	size_t index = 0;
 
@@ -38,7 +39,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 		if (index >= *n)
 		{
 			*n *= 2;
-			char *temp = (char *)realloc(*lineptr, *n * sizeof(char));
+			temp = (char *)realloc(*lineptr, *n * sizeof(char));
 
 			if (temp == NULL)
 			{
