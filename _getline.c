@@ -33,7 +33,6 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 			(*lineptr)[index] = '\0';
 			return (index);
 		}
-
 		(*lineptr)[index++] = (char)c;
 
 		if (index >= *n)

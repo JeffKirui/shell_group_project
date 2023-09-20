@@ -9,7 +9,7 @@ void execute_builtin_cmd(char *cmd)
 	pid_t pid = fork();
 	int result;
 	int status;
-	
+
 	if (pid == -1)
 	{
 		perror("Error: Failure to fork");
