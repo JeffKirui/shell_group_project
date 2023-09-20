@@ -23,7 +23,6 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 			return (-1);
 		}
 	}
-
 	while (1)
 	{
 		c = getc(stream);
@@ -33,19 +32,16 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 			(*lineptr)[index] = '\0';
 			return (index);
 		}
-
 		(*lineptr)[index++] = (char)c;
-
 		if (index >= *n)
 		{
 			*n *= 2;
 			temp = (char *)realloc(*lineptr, *n * sizeof(char));
-
 			if (temp == NULL)
 			{
 				perror("Memory reallocation error");
-				return (-1);         }
-
+				return (-1);
+			}
 			*lineptr = temp;
 		}
 	}
