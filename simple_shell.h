@@ -1,8 +1,6 @@
 #ifndef SIMPLE_SHELL_H
 #define SIMPLE_SHELL_H
-#define MAX_INPUT_SIZE 1024
 #define MAX_ARGS 64
-#define READ_SIZE 1024
 
 #include <stdio.h>
 #include <stdlib.h>

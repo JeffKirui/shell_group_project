@@ -42,6 +42,7 @@ int main(void)
 			execute_external_cmd(buf);
 		else
 			execute_builtin_cmd(buf);
+		free(buf);
 	}
 	free(buf);
 	return (0);

@@ -20,6 +20,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 		if (*lineptr == NULL)
 		{
 			perror("Memory allocation error");
+			free(lineptr);
 			return (-1);
 		}
 	}
@@ -40,6 +41,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 			if (temp == NULL)
 			{
 				perror("Memory reallocation error");
+				free(temp);
 				return (-1);
 			}
 			*lineptr = temp;
