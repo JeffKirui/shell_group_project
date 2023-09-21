@@ -1,4 +1,4 @@
-:wq:wq:wq:wqmple_shell.h"
+#include "simple_shell.h"
 
 /**
   *execute_external_cmd - Function that takes external commands
